@@ -1,0 +1,44 @@
+{
+  "name": "triplestore",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint \"./src/**/*.js\"",
+    "start": "NODE_ENV=DEVELOPMENT nodemon src/index.js --exec 'prettier --write \"**/*.@(js|json)\" && babel-node'",
+    "start:prod": "rimraf dist && babel ./src --out-dir dist && TZ=utc NODE_ENV=PRODUCTION node ./dist/index.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/identity-link/triplestore.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/identity-link/triplestore/issues"
+  },
+  "homepage": "https://github.com/identity-link/triplestore#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
+    "@babel/node": "^7.8.7",
+    "@babel/plugin-proposal-optional-chaining": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.8.7",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "husky": "^4.2.3",
+    "nodemon": "^2.0.2",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.2"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.8.7",
+    "@babel/runtime-corejs3": "^7.8.7"
+  }
+}
